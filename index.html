@@ -1,149 +1,397 @@
-
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página Futurista con Bento Boxes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jon Dawson - Product Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #111;
-      --accent: #0ff;
-      --card-bg: rgba(20,20,20,0.8);
-      --text-light: #eee;
-      --shadow: 0 4px 20px rgba(0,255,255,0.2);
-      --placeholder: rgba(128,128,128,0.8);
+      --primary: #a259ff;
+      --bg: #181824;
+      --text: #f3f3f3;
+      --card-bg: #23233a;
+      --accent: #6c38cc;
+      --border-radius: 16px;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body, html { height:100%; font-family:sans-serif; background: var(--bg-dark); color: var(--text-light); overflow-x:hidden; }
-
-    /* Scrollbar estilizado */
-    ::-webkit-scrollbar { width:8px; }
-    ::-webkit-scrollbar-track { background:#222; }
-    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius:4px; }
-
-    /* Intro a pantalla completa */
-    .intro {
-      position: relative;
-      height: 100vh;
-      background: var(--card-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 0 20px;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+      color: #fff;
     }
-    .intro h1 {
-      font-size: 3rem;
-      text-shadow: 0 0 10px var(--accent);
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
     }
-    .intro p {
-      max-width: 600px;
-      margin-top: 1rem;
+    header p {
       font-size: 1.2rem;
-      background: var(--card-bg);
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
     }
-
-    /* Contenedor de los bento */
-    .bento-container {
+    .header-buttons {
       display: flex;
-      flex-direction: column;
-      gap: 40px;
-      padding: 40px 20px;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .header-buttons a {
+      background: #fff;
+      color: var(--primary);
+      padding: 0.75rem 2rem;
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s, color 0.2s;
+    }
+    .header-buttons a:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    main {
       max-width: 1200px;
-      margin: auto;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
-    .bento {
+    section {
+      margin-bottom: 3rem;
+    }
+    .section-title {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    /* Expertise */
+    .expertise-list {
       display: flex;
-      background: var(--card-bg);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      min-height: 300px;
-    }
-    .bento:nth-child(even) { flex-direction: row-reverse; }
-
-    /* Placeholder en vez de imagen */
-    .placeholder {
-      width: 50%;
-      background: var(--placeholder);
-      border-radius: 16px;
-    }
-    .bento .text {
-      flex: 1;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
+      gap: 2rem;
+      flex-wrap: wrap;
       justify-content: center;
     }
-    .bento .text h2 {
-      margin-bottom: 10px;
+    .expertise-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 2rem 1.5rem;
+      flex: 1 1 220px;
+      min-width: 220px;
+      max-width: 320px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
+      margin-bottom: 1rem;
+    }
+    .expertise-card img {
+      width: 48px;
+      margin-bottom: 1rem;
+    }
+    .expertise-card h3 {
       color: var(--accent);
-      text-shadow: 0 0 5px var(--accent);
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
     }
-    .bento .text p {
-      line-height: 1.5;
+    /* Skills */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
     }
-
-    /* Móvil: todo en columna */
-    @media (max-width: 768px) {
-      .bento {
-        flex-direction: column !important;
+    .skill {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1rem 2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    /* Featured Works */
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .work-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
+      transition: transform 0.2s;
+    }
+    .work-card:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
+    .work-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      display: block;
+    }
+    .work-card h4 {
+      padding: 1rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    /* Experience */
+    .timeline {
+      border-left: 3px solid var(--primary);
+      padding-left: 2rem;
+      margin-left: 1rem;
+    }
+    .timeline-item {
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      left: -2.1rem;
+      top: 0.3rem;
+      width: 1rem;
+      height: 1rem;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 2px solid #fff;
+    }
+    .timeline-year {
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+    /* Testimonials */
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .testimonial-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      max-width: 350px;
+      min-width: 220px;
+      color: #fff;
+      font-style: italic;
+      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
+    }
+    .testimonial-author {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: var(--primary);
+      font-style: normal;
+    }
+    /* Blog */
+    .blog-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .blog-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
+      transition: transform 0.2s;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
+    .blog-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      display: block;
+    }
+    .blog-card h5 {
+      padding: 1rem;
+      color: var(--primary);
+      font-size: 1rem;
+    }
+    /* Footer */
+    footer {
+      background: var(--card-bg);
+      color: #aaa;
+      text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      border-top: 2px solid var(--primary);
+    }
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+    .footer-links a {
+      color: var(--primary);
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .expertise-list, .testimonials {
+        flex-direction: column;
+        align-items: center;
       }
-      .placeholder {
-        width: 100%;
-        height: 200px;
+      .skills-list {
+        flex-direction: column;
+        align-items: center;
       }
-      .intro h1 { font-size: 2rem; }
-      .intro p { font-size: 1rem; }
+    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      .section-title {
+        font-size: 1.3rem;
+      }
+      main {
+        padding: 0 0.5rem;
+      }
+      .expertise-card, .testimonial-card, .work-card, .blog-card {
+        min-width: unset;
+        max-width: unset;
+      }
     }
   </style>
 </head>
 <body>
-
-  <section class="intro">
-    <div>
-      <h1>Bienvenido a FuturoWeb</h1>
-      <p>
-        Explora este diseño “bento” de inspiración futurista. Desplázate para descubrir secciones alternadas con bloques de contenido.
-      </p>
+  <header>
+    <h1>I'm Jon Dawson, Product Designer</h1>
+    <p>Diseñando experiencias digitales hermosas y únicas.</p>
+    <div class="header-buttons">
+      <a href="#contacto">Contactar</a>
+      <a href="#portfolio">Portafolio</a>
     </div>
-  </section>
-
-  <div class="bento-container">
-    <div class="bento">
-      <div class="placeholder"></div>
-      <div class="text">
-        <h2>Sección Uno</h2>
-        <p>
-          Esta es la primera sección con bloque gris a la izquierda en escritorio y arriba en móvil. Aquí puedes describir tu contenido.
-        </p>
+  </header>
+  <main>
+    <!-- Expertise -->
+    <section>
+      <div class="section-title">Mi Experiencia</div>
+      <h2 style="color: var(--accent); margin-bottom: 1.5rem;">Soluciones Innovadoras</h2>
+      <div class="expertise-list">
+        <div class="expertise-card">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/design.png" alt="UI/UX">
+          <h3>Diseño UI/UX</h3>
+          <p>Interfaces intuitivas y atractivas para aplicaciones y sitios web.</p>
+        </div>
+        <div class="expertise-card">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/idea.png" alt="Branding">
+          <h3>Branding</h3>
+          <p>Construcción de marcas sólidas y memorables para tu negocio.</p>
+        </div>
+        <div class="expertise-card">
+          <img src="https://img.icons8.com/ios-filled/50/ffffff/rocket.png" alt="Prototipado">
+          <h3>Prototipado</h3>
+          <p>Prototipos interactivos para validar ideas rápidamente.</p>
+        </div>
       </div>
-    </div>
-
-    <div class="bento">
-      <div class="placeholder"></div>
-      <div class="text">
-        <h2>Sección Dos</h2>
-        <p>
-          La segunda sección invierte el orden: bloque a la derecha en escritorio y arriba en móvil. Mantén el flujo de lectura atractivo.
-        </p>
+    </section>
+    <!-- Skills -->
+    <section>
+      <div class="section-title">Mis Habilidades</div>
+      <p style="color: var(--accent); margin-bottom: 1rem;">Experiencias digitales hermosas y únicas</p>
+      <div class="skills-list">
+        <div class="skill">Figma</div>
+        <div class="skill">Adobe XD</div>
+        <div class="skill">Sketch</div>
+        <div class="skill">HTML5</div>
+        <div class="skill">CSS3</div>
+        <div class="skill">JavaScript</div>
       </div>
-    </div>
-
-    <div class="bento">
-      <div class="placeholder"></div>
-      <div class="text">
-        <h2>Sección Tres</h2>
-        <p>
-          La tercera sección vuelve al orden inicial para crear ritmo visual. Ajusta textos y bloques según tu contenido.
-        </p>
+    </section>
+    <!-- Featured Works -->
+    <section id="portfolio">
+      <div class="section-title">Trabajos Destacados</div>
+      <div class="works-grid">
+        <div class="work-card">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Proyecto 1">
+          <h4>Rediseño de App Móvil</h4>
+        </div>
+        <div class="work-card">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Proyecto 2">
+          <h4>Landing Page para Startup</h4>
+        </div>
+        <div class="work-card">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Proyecto 3">
+          <h4>Dashboard de Analíticas</h4>
+        </div>
+        <div class="work-card">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Proyecto 4">
+          <h4>Identidad Visual para Marca</h4>
+        </div>
       </div>
+    </section>
+    <!-- Experience / Education -->
+    <section>
+      <div class="section-title">Mi Experiencia</div>
+      <h2 style="color: var(--accent); margin-bottom: 1.5rem;">Educación</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2022</div>
+          <div>Maestría en Diseño de Producto - Universidad Creativa</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div>Diplomado en UX/UI - Instituto de Diseño Digital</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2018</div>
+          <div>Licenciatura en Diseño Gráfico - Universidad Nacional</div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section>
+      <div class="section-title">Clientes Felices Dicen</div>
+      <div class="testimonials">
+        <div class="testimonial-card">
+          “Jon transformó nuestra app en una experiencia intuitiva y moderna. ¡Altamente recomendado!”
+          <div class="testimonial-author">— Ana López, CEO de StartApp</div>
+        </div>
+        <div class="testimonial-card">
+          “El proceso de branding fue increíblemente profesional y creativo. Nuestra marca ahora destaca.”
+          <div class="testimonial-author">— Carlos Méndez, Fundador de Brandify</div>
+        </div>
+      </div>
+    </section>
+    <!-- Blog -->
+    <section>
+      <div class="section-title">Blog Actualizado</div>
+      <div class="blog-list">
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Blog 1">
+          <h5>5 Tendencias de Diseño en 2025</h5>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Blog 2">
+          <h5>Cómo crear prototipos efectivos</h5>
+        </div>
+        <div class="blog-card">
+          <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80" alt="Blog 3">
+          <h5>El futuro del UX en apps móviles</h5>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-links">
+      <a href="https://twitter.com/" target="_blank">Twitter</a> |
+      <a href="https://linkedin.com/" target="_blank">LinkedIn</a> |
+      <a href="mailto:jon.dawson@email.com">Email</a>
     </div>
-  </div>
-
+    <div>&copy; 2025 Jon Dawson. Todos los derechos reservados.</div>
+  </footer>
 </body>
 </html>
