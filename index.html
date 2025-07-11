@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Página Futurista con Bento Boxes</title>
   <style>
-    /* Variables de color */
     :root {
       --bg-dark: #111;
       --accent: #0ff;
       --card-bg: rgba(20,20,20,0.8);
       --text-light: #eee;
       --shadow: 0 4px 20px rgba(0,255,255,0.2);
+      --placeholder: rgba(128,128,128,0.8);
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body, html { height:100%; font-family:sans-serif; background: var(--bg-dark); color: var(--text-light); overflow-x:hidden; }
@@ -26,7 +26,7 @@
     .intro {
       position: relative;
       height: 100vh;
-      background: url('intro.jpg') center/cover no-repeat;
+      background: var(--card-bg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -65,9 +65,12 @@
       min-height: 300px;
     }
     .bento:nth-child(even) { flex-direction: row-reverse; }
-    .bento img {
+
+    /* Placeholder en vez de imagen */
+    .placeholder {
       width: 50%;
-      object-fit: cover;
+      background: var(--placeholder);
+      border-radius: 16px;
     }
     .bento .text {
       flex: 1;
@@ -90,7 +93,7 @@
       .bento {
         flex-direction: column !important;
       }
-      .bento img {
+      .placeholder {
         width: 100%;
         height: 200px;
       }
@@ -105,38 +108,38 @@
     <div>
       <h1>Bienvenido a FuturoWeb</h1>
       <p>
-        Explora este diseño “bento” de inspiración futurista. Desplázate para descubrir secciones alternadas con imágenes y texto.
+        Explora este diseño “bento” de inspiración futurista. Desplázate para descubrir secciones alternadas con bloques de contenido.
       </p>
     </div>
   </section>
 
   <div class="bento-container">
     <div class="bento">
-      <img src="img1.jpg" alt="Imagen sección 1">
+      <div class="placeholder"></div>
       <div class="text">
         <h2>Sección Uno</h2>
         <p>
-          Esta es la primera sección, con la imagen a la derecha en móvil y a la izquierda en escritorio. Aquí puedes describir tu contenido.
+          Esta es la primera sección con bloque gris a la izquierda en escritorio y arriba en móvil. Aquí puedes describir tu contenido.
         </p>
       </div>
     </div>
 
     <div class="bento">
-      <img src="img2.jpg" alt="Imagen sección 2">
+      <div class="placeholder"></div>
       <div class="text">
         <h2>Sección Dos</h2>
         <p>
-          La segunda sección invierte el orden: imagen a la izquierda en escritorio y arriba en móvil. Mantén el flujo de lectura atractivo.
+          La segunda sección invierte el orden: bloque a la derecha en escritorio y arriba en móvil. Mantén el flujo de lectura atractivo.
         </p>
       </div>
     </div>
 
     <div class="bento">
-      <img src="img3.jpg" alt="Imagen sección 3">
+      <div class="placeholder"></div>
       <div class="text">
         <h2>Sección Tres</h2>
         <p>
-          La tercera sección vuelve al orden inicial para crear ritmo visual. Ajusta textos e imágenes según tu contenido.
+          La tercera sección vuelve al orden inicial para crear ritmo visual. Ajusta textos y bloques según tu contenido.
         </p>
       </div>
     </div>
