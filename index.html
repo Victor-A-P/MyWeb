@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página con Scrollbar Personalizado</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background: #f0f0f0;
+      color: #333;
+      height: 100vh;
+      overflow-y: scroll;
+    }
+
+    /* Estilo para el scroll en navegadores WebKit */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #e0e0e0;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      background: #0077cc;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      margin: 20px 0;
+    }
+
+    section p {
+      margin-bottom: 15px;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Página Web con Scrollbar Estilizada</h1>
+    <p>Desliza para ver el efecto de scroll personalizado</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>Contenido de prueba</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a diam et dui fermentum malesuada.</p>
+      <p>Nam at orci cursus, gravida purus nec, placerat massa. Sed vel lacinia libero.</p>
+      <p>Aliquam erat volutpat. Donec a nulla eget sapien rutrum iaculis nec non orci.</p>
+      <p>Vivamus vulputate, urna at rhoncus finibus, massa leo sollicitudin quam, sit amet efficitur velit nunc nec velit.</p>
+      <p>Sed tempor, sapien non feugiat varius, purus velit fringilla ante, a pulvinar mi turpis ut purus.</p>
+      <p>Morbi vehicula, justo sed dictum mattis, lorem felis malesuada mi, sed porta diam orci eget justo.</p>
+      <p>Vestibulum tincidunt dui a bibendum facilisis. Integer vulputate quam id libero mattis, a iaculis velit ultrices.</p>
+      <p>Maecenas mattis est at risus euismod, sed sagittis velit sollicitudin.</p>
+      <p>Etiam at dapibus sapien. Integer tristique tortor a mi fermentum, vel iaculis sem porta.</p>
+      <p>Donec ac magna et sapien feugiat placerat nec vitae erat.</p>
+      <p>Phasellus non metus viverra, suscipit sapien sit amet, efficitur lorem.</p>
+      <p>Fusce at facilisis elit. Suspendisse potenti.</p>
+      <p>Nam lacinia eros vel velit elementum, ut pretium mauris consequat.</p>
+    </section>
+  </div>
+</body>
+</html>
