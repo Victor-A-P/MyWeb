@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- perfil.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,387 +11,164 @@
       --primary: #a259ff;
       --bg: #181824;
       --text: #f3f3f3;
-      --card-bg: #23233a;
-      --accent: #6c38cc;
-      --border-radius: 16px;
+      --button-bg: #fff;
+      --button-text: #a259ff;
+      --button-hover-bg: #a259ff;
+      --button-hover-text: #fff;
     }
-    * {
-      box-sizing: border-box;
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
     }
     body {
-      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      width: 100vw;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
     }
-    header {
-      padding: 2rem 1rem;
-      text-align: center;
-      background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-      color: #fff;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .header-buttons {
+    .container {
       display: flex;
+      min-height: 100vh;
+      width: 100vw;
+    }
+    .left-section {
+      flex: 1.2;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 1rem;
+      align-items: flex-start;
+      padding: 0 6vw;
+      z-index: 2;
     }
-    .header-buttons a {
-      background: #fff;
-      color: var(--primary);
-      padding: 0.75rem 2rem;
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.2s, color 0.2s;
-    }
-    .header-buttons a:hover {
-      background: var(--accent);
-      color: #fff;
-    }
-    main {
-      max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 3rem;
-    }
-    .section-title {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
+    .left-section h1 {
+      font-size: 2.8rem;
       font-weight: 700;
-    }
-    /* Expertise */
-    .expertise-list {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .expertise-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 2rem 1.5rem;
-      flex: 1 1 220px;
-      min-width: 220px;
-      max-width: 320px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
       margin-bottom: 1rem;
+      color: var(--text);
     }
-    .expertise-card img {
-      width: 48px;
-      margin-bottom: 1rem;
-    }
-    .expertise-card h3 {
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-    /* Skills */
-    .skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .skill {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1rem 2rem;
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-    /* Featured Works */
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-    .work-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
-      transition: transform 0.2s;
-    }
-    .work-card:hover {
-      transform: translateY(-5px) scale(1.03);
-    }
-    .work-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-    }
-    .work-card h4 {
-      padding: 1rem;
-      color: var(--primary);
+    .left-section p {
       font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: #d1c4e9;
+      max-width: 480px;
     }
-    /* Experience */
-    .timeline {
-      border-left: 3px solid var(--primary);
-      padding-left: 2rem;
-      margin-left: 1rem;
-    }
-    .timeline-item {
-      margin-bottom: 1.5rem;
-      position: relative;
-    }
-    .timeline-item:before {
-      content: '';
-      position: absolute;
-      left: -2.1rem;
-      top: 0.3rem;
-      width: 1rem;
-      height: 1rem;
-      background: var(--primary);
-      border-radius: 50%;
-      border: 2px solid #fff;
-    }
-    .timeline-year {
-      font-weight: bold;
-      color: var(--accent);
-      margin-bottom: 0.2rem;
-    }
-    /* Testimonials */
-    .testimonials {
+    .buttons {
       display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
     }
-    .testimonial-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 1.5rem;
-      max-width: 350px;
-      min-width: 220px;
-      color: #fff;
-      font-style: italic;
-      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
-    }
-    .testimonial-author {
-      margin-top: 1rem;
-      font-weight: bold;
-      color: var(--primary);
-      font-style: normal;
-    }
-    /* Blog */
-    .blog-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-    }
-    .blog-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
-      transition: transform 0.2s;
-    }
-    .blog-card:hover {
-      transform: translateY(-5px) scale(1.03);
-    }
-    .blog-card img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      display: block;
-    }
-    .blog-card h5 {
-      padding: 1rem;
-      color: var(--primary);
+    .btn {
+      padding: 0.9rem 2.2rem;
+      border-radius: 30px;
+      border: none;
       font-size: 1rem;
-    }
-    /* Footer */
-    footer {
-      background: var(--card-bg);
-      color: #aaa;
-      text-align: center;
-      padding: 2rem 1rem 1rem 1rem;
-      border-top: 2px solid var(--primary);
-    }
-    .footer-links {
-      margin-bottom: 1rem;
-    }
-    .footer-links a {
-      color: var(--primary);
-      margin: 0 0.5rem;
-      text-decoration: none;
       font-weight: 600;
-      transition: color 0.2s;
+      cursor: pointer;
+      background: var(--button-bg);
+      color: var(--button-text);
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px rgba(162,89,255,0.08);
+      text-decoration: none;
+      outline: none;
     }
-    .footer-links a:hover {
-      color: var(--accent);
+    .btn:hover {
+      background: var(--button-hover-bg);
+      color: var(--button-hover-text);
+    }
+    .arrow-up {
+      margin-top: 1.5rem;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(162,89,255,0.12);
+      border-radius: 50%;
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .arrow-up:hover {
+      background: var(--primary);
+    }
+    .arrow-up svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--primary);
+      transition: fill 0.2s;
+    }
+    .arrow-up:hover svg {
+      fill: #fff;
+    }
+    .right-section {
+      flex: 1;
+      background: linear-gradient(120deg, var(--primary) 60%, #6c38cc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      min-width: 320px;
+    }
+    .profile-img {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid #fff;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      background: #fff;
+      z-index: 2;
     }
     /* Responsive */
     @media (max-width: 900px) {
-      .expertise-list, .testimonials {
-        flex-direction: column;
-        align-items: center;
+      .container {
+        flex-direction: column-reverse;
       }
-      .skills-list {
-        flex-direction: column;
+      .right-section {
+        min-height: 260px;
+        padding: 2rem 0;
+      }
+      .left-section {
         align-items: center;
+        text-align: center;
+        padding: 2rem 4vw;
       }
     }
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
+      .left-section h1 {
+        font-size: 2rem;
       }
-      .section-title {
-        font-size: 1.3rem;
+      .profile-img {
+        width: 160px;
+        height: 160px;
       }
-      main {
-        padding: 0 0.5rem;
-      }
-      .expertise-card, .testimonial-card, .work-card, .blog-card {
+      .right-section {
         min-width: unset;
-        max-width: unset;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>I'm Jon Dawson, Product Designer</h1>
-    <p>Diseñando experiencias digitales hermosas y únicas.</p>
-    <div class="header-buttons">
-      <a href="#contacto">Contactar</a>
-      <a href="#portfolio">Portafolio</a>
+  <div class="container">
+    <div class="left-section">
+      <h1>I'm Jon Dawson,<br>Product Designer</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac neque nec nisi blandit commodo. Integer euismod, urna eu tincidunt consectetur, nisi nisl aliquam nunc, vitae dictum enim.</p>
+      <div class="buttons">
+        <a href="#about" class="btn">About</a>
+        <a href="cv-jon-dawson.pdf" class="btn" download>Download CV</a>
+      </div>
+      <div class="arrow-up" title="Ir arriba">
+        <!-- Flecha SVG -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 4l-8 8h6v8h4v-8h6z"/>
+        </svg>
+      </div>
     </div>
-  </header>
-  <main>
-    <!-- Expertise -->
-    <section>
-      <div class="section-title">Mi Experiencia</div>
-      <h2 style="color: var(--accent); margin-bottom: 1.5rem;">Soluciones Innovadoras</h2>
-      <div class="expertise-list">
-        <div class="expertise-card">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/design.png" alt="UI/UX">
-          <h3>Diseño UI/UX</h3>
-          <p>Interfaces intuitivas y atractivas para aplicaciones y sitios web.</p>
-        </div>
-        <div class="expertise-card">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/idea.png" alt="Branding">
-          <h3>Branding</h3>
-          <p>Construcción de marcas sólidas y memorables para tu negocio.</p>
-        </div>
-        <div class="expertise-card">
-          <img src="https://img.icons8.com/ios-filled/50/ffffff/rocket.png" alt="Prototipado">
-          <h3>Prototipado</h3>
-          <p>Prototipos interactivos para validar ideas rápidamente.</p>
-        </div>
-      </div>
-    </section>
-    <!-- Skills -->
-    <section>
-      <div class="section-title">Mis Habilidades</div>
-      <p style="color: var(--accent); margin-bottom: 1rem;">Experiencias digitales hermosas y únicas</p>
-      <div class="skills-list">
-        <div class="skill">Figma</div>
-        <div class="skill">Adobe XD</div>
-        <div class="skill">Sketch</div>
-        <div class="skill">HTML5</div>
-        <div class="skill">CSS3</div>
-        <div class="skill">JavaScript</div>
-      </div>
-    </section>
-    <!-- Featured Works -->
-    <section id="portfolio">
-      <div class="section-title">Trabajos Destacados</div>
-      <div class="works-grid">
-        <div class="work-card">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Proyecto 1">
-          <h4>Rediseño de App Móvil</h4>
-        </div>
-        <div class="work-card">
-          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Proyecto 2">
-          <h4>Landing Page para Startup</h4>
-        </div>
-        <div class="work-card">
-          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Proyecto 3">
-          <h4>Dashboard de Analíticas</h4>
-        </div>
-        <div class="work-card">
-          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Proyecto 4">
-          <h4>Identidad Visual para Marca</h4>
-        </div>
-      </div>
-    </section>
-    <!-- Experience / Education -->
-    <section>
-      <div class="section-title">Mi Experiencia</div>
-      <h2 style="color: var(--accent); margin-bottom: 1.5rem;">Educación</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-year">2022</div>
-          <div>Maestría en Diseño de Producto - Universidad Creativa</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">2020</div>
-          <div>Diplomado en UX/UI - Instituto de Diseño Digital</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">2018</div>
-          <div>Licenciatura en Diseño Gráfico - Universidad Nacional</div>
-        </div>
-      </div>
-    </section>
-    <!-- Testimonials -->
-    <section>
-      <div class="section-title">Clientes Felices Dicen</div>
-      <div class="testimonials">
-        <div class="testimonial-card">
-          “Jon transformó nuestra app en una experiencia intuitiva y moderna. ¡Altamente recomendado!”
-          <div class="testimonial-author">— Ana López, CEO de StartApp</div>
-        </div>
-        <div class="testimonial-card">
-          “El proceso de branding fue increíblemente profesional y creativo. Nuestra marca ahora destaca.”
-          <div class="testimonial-author">— Carlos Méndez, Fundador de Brandify</div>
-        </div>
-      </div>
-    </section>
-    <!-- Blog -->
-    <section>
-      <div class="section-title">Blog Actualizado</div>
-      <div class="blog-list">
-        <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Blog 1">
-          <h5>5 Tendencias de Diseño en 2025</h5>
-        </div>
-        <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Blog 2">
-          <h5>Cómo crear prototipos efectivos</h5>
-        </div>
-        <div class="blog-card">
-          <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80" alt="Blog 3">
-          <h5>El futuro del UX en apps móviles</h5>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer>
-    <div class="footer-links">
-      <a href="https://twitter.com/" target="_blank">Twitter</a> |
-      <a href="https://linkedin.com/" target="_blank">LinkedIn</a> |
-      <a href="mailto:jon.dawson@email.com">Email</a>
+    <div class="right-section">
+      <img class="profile-img" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Jon Dawson">
     </div>
-    <div>&copy; 2025 Jon Dawson. Todos los derechos reservados.</div>
-  </footer>
+  </div>
 </body>
 </html>
