@@ -1,96 +1,146 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Página con Scrollbar Personalizado</title>
+  <title>Página Futurista con Bento Boxes</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    /* Variables de color */
+    :root {
+      --bg-dark: #111;
+      --accent: #0ff;
+      --card-bg: rgba(20,20,20,0.8);
+      --text-light: #eee;
+      --shadow: 0 4px 20px rgba(0,255,255,0.2);
     }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html { height:100%; font-family:sans-serif; background: var(--bg-dark); color: var(--text-light); overflow-x:hidden; }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      background: #f0f0f0;
-      color: #333;
+    /* Scrollbar estilizado */
+    ::-webkit-scrollbar { width:8px; }
+    ::-webkit-scrollbar-track { background:#222; }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius:4px; }
+
+    /* Intro a pantalla completa */
+    .intro {
+      position: relative;
       height: 100vh;
-      overflow-y: scroll;
-    }
-
-    /* Estilo para el scroll en navegadores WebKit */
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #e0e0e0;
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 10px;
-      transition: background 0.3s ease;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    header {
-      background: #0077cc;
-      color: white;
-      padding: 20px;
+      background: url('intro.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 0 20px;
+    }
+    .intro h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px var(--accent);
+    }
+    .intro p {
+      max-width: 600px;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
     }
 
-    section {
-      margin: 20px 0;
+    /* Contenedor de los bento */
+    .bento-container {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .bento {
+      display: flex;
+      background: var(--card-bg);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 300px;
+    }
+    .bento:nth-child(even) { flex-direction: row-reverse; }
+    .bento img {
+      width: 50%;
+      object-fit: cover;
+    }
+    .bento .text {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .bento .text h2 {
+      margin-bottom: 10px;
+      color: var(--accent);
+      text-shadow: 0 0 5px var(--accent);
+    }
+    .bento .text p {
+      line-height: 1.5;
     }
 
-    section p {
-      margin-bottom: 15px;
-    }
-
-    @media screen and (max-width: 768px) {
-      header {
-        font-size: 18px;
+    /* Móvil: todo en columna */
+    @media (max-width: 768px) {
+      .bento {
+        flex-direction: column !important;
       }
+      .bento img {
+        width: 100%;
+        height: 200px;
+      }
+      .intro h1 { font-size: 2rem; }
+      .intro p { font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Página Web con Scrollbar Estilizada</h1>
-    <p>Desliza para ver el efecto de scroll personalizado</p>
-  </header>
 
-  <div class="container">
-    <section>
-      <h2>Contenido de prueba</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin a diam et dui fermentum malesuada.</p>
-      <p>Nam at orci cursus, gravida purus nec, placerat massa. Sed vel lacinia libero.</p>
-      <p>Aliquam erat volutpat. Donec a nulla eget sapien rutrum iaculis nec non orci.</p>
-      <p>Vivamus vulputate, urna at rhoncus finibus, massa leo sollicitudin quam, sit amet efficitur velit nunc nec velit.</p>
-      <p>Sed tempor, sapien non feugiat varius, purus velit fringilla ante, a pulvinar mi turpis ut purus.</p>
-      <p>Morbi vehicula, justo sed dictum mattis, lorem felis malesuada mi, sed porta diam orci eget justo.</p>
-      <p>Vestibulum tincidunt dui a bibendum facilisis. Integer vulputate quam id libero mattis, a iaculis velit ultrices.</p>
-      <p>Maecenas mattis est at risus euismod, sed sagittis velit sollicitudin.</p>
-      <p>Etiam at dapibus sapien. Integer tristique tortor a mi fermentum, vel iaculis sem porta.</p>
-      <p>Donec ac magna et sapien feugiat placerat nec vitae erat.</p>
-      <p>Phasellus non metus viverra, suscipit sapien sit amet, efficitur lorem.</p>
-      <p>Fusce at facilisis elit. Suspendisse potenti.</p>
-      <p>Nam lacinia eros vel velit elementum, ut pretium mauris consequat.</p>
-    </section>
+  <section class="intro">
+    <div>
+      <h1>Bienvenido a FuturoWeb</h1>
+      <p>
+        Explora este diseño “bento” de inspiración futurista. Desplázate para descubrir secciones alternadas con imágenes y texto.
+      </p>
+    </div>
+  </section>
+
+  <div class="bento-container">
+    <div class="bento">
+      <img src="img1.jpg" alt="Imagen sección 1">
+      <div class="text">
+        <h2>Sección Uno</h2>
+        <p>
+          Esta es la primera sección, con la imagen a la derecha en móvil y a la izquierda en escritorio. Aquí puedes describir tu contenido.
+        </p>
+      </div>
+    </div>
+
+    <div class="bento">
+      <img src="img2.jpg" alt="Imagen sección 2">
+      <div class="text">
+        <h2>Sección Dos</h2>
+        <p>
+          La segunda sección invierte el orden: imagen a la izquierda en escritorio y arriba en móvil. Mantén el flujo de lectura atractivo.
+        </p>
+      </div>
+    </div>
+
+    <div class="bento">
+      <img src="img3.jpg" alt="Imagen sección 3">
+      <div class="text">
+        <h2>Sección Tres</h2>
+        <p>
+          La tercera sección vuelve al orden inicial para crear ritmo visual. Ajusta textos e imágenes según tu contenido.
+        </p>
+      </div>
+    </div>
   </div>
+
 </body>
 </html>
